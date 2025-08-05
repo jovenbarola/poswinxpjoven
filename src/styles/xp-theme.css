@@ -1,0 +1,625 @@
+/* Windows XP Theme Styles */
+:root {
+  --xp-blue: #0054e3;
+  --xp-blue-light: #316ac5;
+  --xp-blue-dark: #003399;
+  --xp-green: #73d216;
+  --xp-silver: #ece9d8;
+  --xp-silver-light: #f4f3ee;
+  --xp-silver-dark: #d4d0c8;
+  --xp-border: #0054e3;
+  --xp-text: #000000;
+  --xp-text-light: #ffffff;
+  --xp-shadow: rgba(0, 0, 0, 0.3);
+  --xp-gradient-blue: linear-gradient(to bottom, #7db4ea 0%, #316ac5 100%);
+  --xp-gradient-silver: linear-gradient(to bottom, #f4f3ee 0%, #ece9d8 50%, #d4d0c8 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+  font-size: 11px;
+  background: #316ac5 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><radialGradient id="bg" cx="50%" cy="50%"><stop offset="0%" stop-color="%237db4ea"/><stop offset="100%" stop-color="%23316ac5"/></radialGradient></defs><rect width="400" height="300" fill="url(%23bg)"/></svg>') center/cover;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Loading Screen */
+.xp-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #316ac5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.xp-loading-screen {
+  text-align: center;
+  color: white;
+}
+
+.xp-logo {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.xp-loading-bar {
+  width: 300px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto 20px;
+}
+
+.xp-loading-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #73d216 0%, #4e9a06 100%);
+  animation: loading 2s ease-in-out infinite;
+  border-radius: 10px;
+}
+
+@keyframes loading {
+  0% { width: 0%; }
+  50% { width: 70%; }
+  100% { width: 100%; }
+}
+
+.xp-loading-text {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Desktop */
+.xp-desktop {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: var(--xp-blue) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><radialGradient id="bg" cx="50%" cy="50%"><stop offset="0%" stop-color="%237db4ea"/><stop offset="100%" stop-color="%23316ac5"/></radialGradient></defs><rect width="400" height="300" fill="url(%23bg)"/></svg>') center/cover;
+  overflow: hidden;
+}
+
+/* Taskbar */
+.xp-taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: var(--xp-gradient-blue);
+  border-top: 1px solid #4a90e2;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  z-index: 1000;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.xp-start-button {
+  height: 24px;
+  padding: 0 20px 0 8px;
+  background: var(--xp-gradient-silver);
+  border: 1px outset var(--xp-silver-dark);
+  border-radius: 3px;
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--xp-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  position: relative;
+}
+
+.xp-start-button:hover {
+  background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 50%, #e0e0e0 100%);
+}
+
+.xp-start-button.active {
+  border: 1px inset var(--xp-silver-dark);
+  background: linear-gradient(to bottom, #e0e0e0 0%, #f0f0f0 50%, #ffffff 100%);
+}
+
+.xp-start-button::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background: var(--xp-blue);
+  border-radius: 2px;
+  margin-right: 5px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white"><path d="M8 0L0 8h3v8h10V8h3L8 0z"/></svg>');
+  background-size: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.xp-taskbar-buttons {
+  flex: 1;
+  display: flex;
+  gap: 2px;
+  margin-left: 10px;
+}
+
+.xp-taskbar-button {
+  height: 24px;
+  padding: 0 10px;
+  background: var(--xp-gradient-blue);
+  border: 1px outset #5a9fe3;
+  border-radius: 2px;
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  color: var(--xp-text-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.xp-taskbar-button:hover {
+  background: linear-gradient(to bottom, #8bb8ea 0%, #4a90e3 100%);
+}
+
+.xp-taskbar-button.active {
+  border: 1px inset #5a9fe3;
+  background: linear-gradient(to bottom, #4a90e3 0%, #8bb8ea 100%);
+}
+
+.xp-system-tray {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  padding: 0 10px;
+  border-left: 1px inset #5a9fe3;
+  height: 22px;
+}
+
+.xp-clock {
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  color: var(--xp-text-light);
+  font-weight: normal;
+}
+
+/* Windows */
+.xp-window {
+  position: absolute;
+  background: var(--xp-silver);
+  border: 2px outset var(--xp-silver-dark);
+  border-radius: 6px 6px 0 0;
+  box-shadow: 4px 4px 8px var(--xp-shadow);
+  min-width: 300px;
+  min-height: 200px;
+  z-index: 100;
+}
+
+.xp-window.active {
+  z-index: 200;
+}
+
+.xp-window.minimized {
+  display: none;
+}
+
+.xp-window-header {
+  height: 30px;
+  background: var(--xp-gradient-blue);
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  cursor: move;
+  user-select: none;
+}
+
+.xp-window.inactive .xp-window-header {
+  background: linear-gradient(to bottom, #bfbfbf 0%, #808080 100%);
+}
+
+.xp-window-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  background: var(--xp-silver);
+  border-radius: 2px;
+}
+
+.xp-window-title {
+  flex: 1;
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--xp-text-light);
+}
+
+.xp-window-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.xp-window-control {
+  width: 21px;
+  height: 21px;
+  background: var(--xp-gradient-silver);
+  border: 1px outset var(--xp-silver-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--xp-text);
+}
+
+.xp-window-control:hover {
+  background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+}
+
+.xp-window-control:active {
+  border: 1px inset var(--xp-silver-dark);
+}
+
+.xp-window-control.close:hover {
+  background: linear-gradient(to bottom, #ff6b6b 0%, #e74c3c 100%);
+  color: white;
+}
+
+.xp-window-content {
+  padding: 10px;
+  height: calc(100% - 30px);
+  overflow: auto;
+  background: var(--xp-silver);
+}
+
+/* Forms */
+.xp-form {
+  background: var(--xp-silver);
+  padding: 20px;
+}
+
+.xp-form-group {
+  margin-bottom: 15px;
+}
+
+.xp-label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--xp-text);
+}
+
+.xp-input {
+  width: 100%;
+  padding: 4px 6px;
+  border: 2px inset var(--xp-silver-dark);
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  background: white;
+  color: var(--xp-text);
+}
+
+.xp-input:focus {
+  outline: none;
+  border-color: var(--xp-blue);
+}
+
+.xp-button {
+  padding: 6px 16px;
+  background: var(--xp-gradient-silver);
+  border: 1px outset var(--xp-silver-dark);
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  color: var(--xp-text);
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.xp-button:hover {
+  background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+}
+
+.xp-button:active {
+  border: 1px inset var(--xp-silver-dark);
+}
+
+.xp-button.primary {
+  background: var(--xp-gradient-blue);
+  color: var(--xp-text-light);
+}
+
+.xp-button.primary:hover {
+  background: linear-gradient(to bottom, #8bb8ea 0%, #4a90e3 100%);
+}
+
+/* Start Menu */
+.xp-start-menu {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 300px;
+  background: var(--xp-silver);
+  border: 2px outset var(--xp-silver-dark);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 4px -4px 8px var(--xp-shadow);
+  z-index: 1001;
+}
+
+.xp-start-menu-header {
+  height: 60px;
+  background: var(--xp-gradient-blue);
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  color: var(--xp-text-light);
+  font-weight: bold;
+  border-radius: 4px 4px 0 0;
+}
+
+.xp-start-menu-items {
+  padding: 5px 0;
+}
+
+.xp-start-menu-item {
+  padding: 8px 15px;
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  color: var(--xp-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.xp-start-menu-item:hover {
+  background: var(--xp-blue-light);
+  color: var(--xp-text-light);
+}
+
+.xp-start-menu-icon {
+  width: 16px;
+  height: 16px;
+  background: var(--xp-blue);
+  border-radius: 2px;
+}
+
+/* Desktop Icons */
+.xp-desktop-icons {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.xp-desktop-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.xp-desktop-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.xp-desktop-icon-image {
+  width: 32px;
+  height: 32px;
+  background: var(--xp-silver);
+  border: 1px solid var(--xp-silver-dark);
+  border-radius: 4px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.xp-desktop-icon-label {
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  color: var(--xp-text-light);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  word-wrap: break-word;
+  line-height: 1.2;
+}
+
+/* Notifications */
+.xp-notification {
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+  width: 300px;
+  background: var(--xp-silver);
+  border: 2px outset var(--xp-silver-dark);
+  border-radius: 6px;
+  box-shadow: 4px 4px 8px var(--xp-shadow);
+  z-index: 2000;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.xp-notification-header {
+  background: var(--xp-gradient-blue);
+  color: var(--xp-text-light);
+  padding: 5px 10px;
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 4px 4px 0 0;
+}
+
+.xp-notification-content {
+  padding: 10px;
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  color: var(--xp-text);
+}
+
+/* Menu Items */
+.xp-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 10px;
+}
+
+.xp-menu-item {
+  background: var(--xp-silver);
+  border: 2px outset var(--xp-silver-dark);
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.xp-menu-item:hover {
+  border: 2px inset var(--xp-silver-dark);
+  background: var(--xp-silver-light);
+}
+
+.xp-menu-item-image {
+  width: 100%;
+  height: 120px;
+  background: #f0f0f0;
+  border: 1px inset var(--xp-silver-dark);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 10px;
+}
+
+.xp-menu-item-name {
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--xp-text);
+  margin-bottom: 5px;
+}
+
+.xp-menu-item-description {
+  font-family: Tahoma, sans-serif;
+  font-size: 10px;
+  color: #666;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.xp-menu-item-price {
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--xp-blue);
+  margin-bottom: 8px;
+}
+
+/* Cart */
+.xp-cart-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid var(--xp-silver-dark);
+  gap: 10px;
+}
+
+.xp-cart-item-name {
+  flex: 1;
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--xp-text);
+}
+
+.xp-cart-quantity {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.xp-quantity-btn {
+  width: 20px;
+  height: 20px;
+  background: var(--xp-gradient-silver);
+  border: 1px outset var(--xp-silver-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.xp-quantity-input {
+  width: 40px;
+  text-align: center;
+  border: 1px inset var(--xp-silver-dark);
+  padding: 2px;
+  font-size: 10px;
+}
+
+.xp-cart-total {
+  padding: 10px;
+  border-top: 2px inset var(--xp-silver-dark);
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: right;
+  color: var(--xp-text);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .xp-desktop {
+    font-size: 10px;
+  }
+  
+  .xp-window {
+    min-width: 280px;
+  }
+  
+  .xp-start-menu {
+    width: 250px;
+  }
+  
+  .xp-menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
